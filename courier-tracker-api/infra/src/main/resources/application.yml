@@ -1,0 +1,35 @@
+
+server:
+  port: 8081
+  servlet:
+    context-path: /courier-tracker-api
+
+spring:
+  application:
+    name: courier-tracker-api
+
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: org.h2.Driver
+    username: name5834
+    password: pass5834
+    url: jdbc:h2:mem:migrosdb;DB_CLOSE_DELAY=-1;MODE=MYSQL
+    hikari:
+      connection-timeout: 30000
+      maximum-pool-size: 10
+      minimum-idle: 2
+      idle-timeout: 30000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+
+springdoc:
+  swagger-ui:
+    enabled: true
+
+migros:
+  location-calculator:
+    type: HAVERSINE
